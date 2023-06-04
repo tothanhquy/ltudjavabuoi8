@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        lang="en"
+        xmlns:th="http://www.ultraq.net.nz/thymeleaf"
+        layout:decorate="~{layout/main}">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+<article layout:fragment="content"  class ="container body-content">
+<!--  <h1>Create New Nhanvien</h1>-->
+  <br />
+  <form class="form" style="width:1000px;padding:0 auto;" action="#" th:action="@{/nhanvien/save}" th:object="${nhanvien}"
+        method="post">
+    <div class="form-group">
+      <label>Ma Nhan Vien:</label>
+      <input class="form-control" type="text" th:field="*{ma_nv}" />
+    </div>
+    <div class="form-group">
+      <label>Ten Nhan Vien:</label>
+      <input class="form-control" type="text" th:field="*{ten_nv}" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="gioi_tinh">Gioi Tinh:</label></td>
+      <select class="custom-select mr-sm-2" id="gioi_tinh" th:field="*{gioi_tinh}">
+        <option value="">--Select Sex--</option>
+        <option th:value="NAM" th:text="NAM"></option>
+        <option th:value="NU" th:text="NU"></option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Noi Sinh:</label>
+      <input class="form-control" type="text" th:field="*{noi_sinh}" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="phongban">Phong Ban:</label>
+      <select class="custom-select mr-sm-2" id="phongban" th:field="*{phong_ban}">
+        <option value="">--Select Category--</option>
+        <option th:each="pb : ${pbs}" th:value="${pb.ma_phong}" th:text="${pb.ten_phong}"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Luong:</label>
+      <input class="form-control" type="number" th:field="*{luong}" />
+    </div>
+<!--      <tr>-->
+<!--        <td>Ma Nhan Vien:</td>-->
+<!--        <td><input type="text" th:field="*{ma_nv}" /></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <label>Ten Nhan Vien:</label>-->
+<!--        <input class="form-control" type="text" th:field="*{ten_nv}" />-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td>-->
+<!--        <label class="form-label" for="gioi_tinh">Gioi Tinh:</label></td>-->
+<!--        <td><select class="form-control" id="gioi_tinh" th:field="*{gioi_tinh}">-->
+<!--          <option value="">&#45;&#45;Select Sex&#45;&#45;</option>-->
+<!--          <option th:value="NAM" th:text="NAM"></option>-->
+<!--          <option th:value="NU" th:text="NU"></option>-->
+<!--        </select></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td>Noi Sinh:</td>-->
+<!--        <td><input type="text" th:field="*{noi_sinh}" /></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><label class="form-label" for="phongban">Phong Ban:</label></td>-->
+<!--        <td><select class="form-control" id="phongban" th:field="*{phong_ban}">-->
+<!--          <option value="">&#45;&#45;Select Category&#45;&#45;</option>-->
+<!--          <option th:each="pb : ${pbs}" th:value="${pb.ma_phong}" th:text="${pb.ten_phong}"></option>-->
+<!--        </select></td>-->
+
+
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td>Luong:</td>-->
+<!--        <td><input type="text" th:field="*{luong}" /></td>-->
+<!--      </tr>-->
+        <button type="submit">Save</button>
+  </form>
+</article>
+</body>
+</html>
